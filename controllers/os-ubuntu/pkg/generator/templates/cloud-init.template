@@ -31,6 +31,7 @@ runcmd:
 - ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
 - systemctl daemon-reload
 {{ if .Bootstrap -}}
+- hostnamectl set-hostname $(hostname -f)
 - ln -s /usr/bin/docker /bin/docker
 - systemctl start docker
 {{ end -}}
